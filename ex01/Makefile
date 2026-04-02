@@ -1,21 +1,32 @@
-NAME		 = phonebook
-COMP		 = c++
-FLAGS		 = -Wall -Wextra -Werror
-SRCS_DIR	 = srcs/
-SRCS		 = phonebook.cpp
-INCLUDES	:= -Iincludes
+NAME		= phonebook
+COMP		= c++
+FLAGS		= -Wall -Wextra -Werror
+SRCS_DIR	= srcs/
+OBJS_DIR	= objs/
+SRCS		= phonebook.cpp
 SRCS		:= $(addprefix $(SRCS_DIR), $(SRCS))
-
+OBJS		:= $(SRCS:$(SRCS_DIR)%.cpp=$(OBJS_DIR)%.o)
 
 all: $(NAME)
 	@echo "$(NAME) created!"
 
-$(NAME):
+$(NAME): $(OBJS)
 	@echo "Creating program."
-	@$(COMP) $(FLAGS) $(INCLUDES) $(SRCS) -o $(NAME)
+	@$(COMP) $(FLAGS) $(OBJS) -o $(NAME)
+
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
+	@echo "Compiling .cpp files..."
+	@mkdir -p $(dir $@)
+	@$(COMP) $(FLAGS) -c $< -o $@
+
+clean:
+	@clear
+	@echo "Removing object files."
+	@rm -f $(OBJS)
 
 fclean:
 	@clear
+	@clean
 	@rm -f $(NAME)
 
 re: fclean all
