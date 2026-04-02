@@ -24,9 +24,8 @@ clean:
 	@echo "Removing object files."
 	@rm -f $(OBJS)
 
-fclean:
-	@clear
-	@clean
+fclean: clean
+	@echo "Removing $(NAME) executable file."
 	@rm -f $(NAME)
 
 re: fclean all
