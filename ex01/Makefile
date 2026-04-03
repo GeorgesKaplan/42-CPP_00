@@ -4,7 +4,10 @@ FLAGS		= -Wall -Wextra -Werror
 SRCS_DIR	= srcs/
 OBJS_DIR	= objs/
 INCLUDES	= -Iincludes
-SRCS		= phonebook.cpp
+SRCS		=	main.cpp \
+				\
+				classes/Contact.cpp \
+				classes/PhoneBook.cpp
 SRCS		:= $(addprefix $(SRCS_DIR), $(SRCS))
 OBJS		:= $(SRCS:$(SRCS_DIR)%.cpp=$(OBJS_DIR)%.o)
 
