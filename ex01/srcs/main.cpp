@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/03 13:07:58 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/03 13:48:57 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,34 @@ int main(void)
 			input = read_input();
 			contact.set_secret(input);
 
-			// std::cout << "First name: " << contact.first_name << std::endl;
-			// std::cout << "Last name: " << contact.last_name << std::endl;
-			// std::cout << "Nickname: " << contact.nickname << std::endl;
-			// std::cout << "Phone number: " << contact.number << std::endl;
-			// std::cout << "Secret cannot be displayed. " << std::endl;
-
 			phonebook.add_contact(contact);
 		}
 		if (input == "SEARCH"){
-			std::cout << "Searching contact..." << std::endl;
+			std::cout << "Searching contacts..." << std::endl;
+
+			for (int i = 0; i < phonebook.contact_count % MAX_CONTACTS; i++)
+			{
+				std::cout << std::right << std::setw(10) << i;
+				std::cout << "|";
+				std::cout << std::right << std::setw(10) << phonebook.contacts[i].first_name;
+				std::cout << "|";
+				std::cout << std::right << std::setw(10) << phonebook.contacts[i].last_name;
+				std::cout << "|";
+				std::cout << std::right << std::setw(10) << phonebook.contacts[i].nickname;
+				std::cout << std::endl;
+			}
+
+			std::cout << "See info for contact number: ";
+			input = read_input();
+			if (std::stoi(input) < 0 || std::stoi(input) > phonebook.contact_count % MAX_CONTACTS)
+			{
+				// BUG: doesn't print?
+				std::cout << "Inexistant contact, please enter a valid number: ";
+			}
+			else
+			{
+				std::cout << phonebook.contacts[stoi(input)].number << std::endl;
+			}
 		}
 		// display_commands();
 	}

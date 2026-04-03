@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 12:34:05 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/03 12:44:38 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/03 13:25:03 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Contact
 		std::string secret;
 
 	public:
+		// int			index;
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
