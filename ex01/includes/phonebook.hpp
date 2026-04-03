@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:34:40 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/02 17:13:50 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/03 12:00:32 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Contact
 class PhoneBook
 {
 	public:
-		int		count;
+		int		count = 0;
 		Contact contacts[8];
 };
 

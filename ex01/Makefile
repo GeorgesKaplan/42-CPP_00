@@ -3,6 +3,7 @@ COMP		= c++
 FLAGS		= -Wall -Wextra -Werror
 SRCS_DIR	= srcs/
 OBJS_DIR	= objs/
+INCLUDES	= -Iincludes
 SRCS		= phonebook.cpp
 SRCS		:= $(addprefix $(SRCS_DIR), $(SRCS))
 OBJS		:= $(SRCS:$(SRCS_DIR)%.cpp=$(OBJS_DIR)%.o)
@@ -17,16 +18,15 @@ $(NAME): $(OBJS)
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
 	@echo "Compiling .cpp files..."
 	@mkdir -p $(dir $@)
-	@$(COMP) $(FLAGS) -c $< -o $@
+	@$(COMP) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	@clear
 	@echo "Removing object files."
 	@rm -f $(OBJS)
 
-fclean:
-	@clear
-	@clean
+fclean: clean
+	@echo "Removing $(NAME) executable file."
 	@rm -f $(NAME)
 
 re: fclean all

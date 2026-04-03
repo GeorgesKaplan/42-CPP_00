@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/02 16:10:33 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/03 12:10:30 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,44 @@ void display_commands()
 
 int main(void)
 {
-	display_commands();
+	PhoneBook phonebook;
+	int contact_count = 0;
 
+	display_commands();
 	std::string input;
 	while ((input = read_input()) != "EXIT")
 	{
 		if (input == "ADD"){
+			Contact contact;
+
 			std::cout << "Adding new contact..." << std::endl;
 
 			std::cout << "Enter first name:" << std::endl;
 			input = read_input();
-			std::cout << "First name: " << input << std::endl;
+			contact.first_name = input;
+			std::cout << "First name: " << contact.first_name << std::endl;
 
 			std::cout << "Enter last name:" << std::endl;
 			input = read_input();
-			std::cout << "Last name: " << input << std::endl;
+			contact.last_name = input;
+			std::cout << "Last name: " << contact.last_name << std::endl;
 
 			std::cout << "Enter nickname:" << std::endl;
 			input = read_input();
-			std::cout << "Nickname: " << input << std::endl;
+			contact.nickname = input;
+			std::cout << "Nickname: " << contact.nickname << std::endl;
 
 			std::cout << "Enter phone number:" << std::endl;
 			input = read_input();
-			std::cout << "Phone number: " << input << std::endl;
+			contact.number = input;
+			std::cout << "Phone number: " << contact.number << std::endl;
 
 			std::cout << "Enter secret:" << std::endl;
 			input = read_input();
-			std::cout << "Secret: " << input << std::endl;
+			contact.set_secret(input);
+			std::cout << "Secret cannot be displayed. " << std::endl;
+
+			contact_count += 1;
 		}
 		if (input == "SEARCH"){
 			std::cout << "Searching contact..." << std::endl;
