@@ -6,11 +6,11 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/03 12:43:19 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/03 13:07:58 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "AwesomePhonebook.hpp"
 
 std::string read_input(void)
 {
@@ -57,18 +57,18 @@ int main(void)
 			input = read_input();
 			contact.set_secret(input);
 
-			std::cout << "First name: " << contact.first_name << std::endl;
-			std::cout << "Last name: " << contact.last_name << std::endl;
-			std::cout << "Nickname: " << contact.nickname << std::endl;
-			std::cout << "Phone number: " << contact.number << std::endl;
-			std::cout << "Secret cannot be displayed. " << std::endl;
+			// std::cout << "First name: " << contact.first_name << std::endl;
+			// std::cout << "Last name: " << contact.last_name << std::endl;
+			// std::cout << "Nickname: " << contact.nickname << std::endl;
+			// std::cout << "Phone number: " << contact.number << std::endl;
+			// std::cout << "Secret cannot be displayed. " << std::endl;
 
 			phonebook.add_contact(contact);
 		}
 		if (input == "SEARCH"){
 			std::cout << "Searching contact..." << std::endl;
 		}
-		display_commands();
+		// display_commands();
 	}
 	std::cout << "Closing phonebook." << std::endl;
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 12:41:47 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/03 12:49:26 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/03 12:59:26 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ PhoneBook::~PhoneBook()
 void	PhoneBook::add_contact(Contact contact)
 {
 	this->contacts[contact_count % MAX_CONTACTS] = contact;
+	contact_count += 1;
 }

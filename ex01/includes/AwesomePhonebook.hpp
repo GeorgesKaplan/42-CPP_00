@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   awesome_phonebook.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 12:34:40 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/03 13:05:09 by dnantet          ###   ########.fr       */
+/*   Created: 2026/04/03 13:04:19 by dnantet           #+#    #+#             */
+/*   Updated: 2026/04/03 13:06:09 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef AWESOME_PHONEBOOK_H
+# define AWESOME_PHONEBOOK_H
 
-# include "Contact.hpp"
+# include <iostream>
+# include <fstream>
 
-# define MAX_CONTACTS 8
-
-class PhoneBook
-{
-	public:
-		int		contact_count = 0;
-		Contact contacts[MAX_CONTACTS];
-
-	void	add_contact(Contact contact);
-	PhoneBook();
-	~PhoneBook();
-};
+#include "PhoneBook.hpp"
 
 #endif
