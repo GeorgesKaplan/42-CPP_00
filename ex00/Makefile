@@ -1,6 +1,6 @@
 NAME		= megaphone
 COMP		= c++
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -g
 SRCS_DIR	= srcs/
 OBJS_DIR	= objs/
 SRCS		= megaphone.cpp

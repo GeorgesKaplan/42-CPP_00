@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/03 13:48:57 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/07 15:02:25 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,22 @@ std::string read_input(void)
 
 void display_commands()
 {
-	std::cout << "Available commands:\nADD -> Add a contact\nSEARCH -> Search for a specific contact\nEXIT -> Close phonebook\n" << std::endl;
+	std::cout << "Available commands:\nADD\t-> Add a contact\nSEARCH\t-> Search for a specific contact\nEXIT\t-> Close phonebook\n" << std::endl;
+}
+
+void display_contacts(PhoneBook phonebook)
+{
+	for (int i = 0; i < (phonebook.contact_count % MAX_CONTACTS); i++)
+	{
+		std::cout << std::right << std::setw(10) << i;
+		std::cout << "|";
+		std::cout << std::right << std::setw(10) << phonebook.contacts[i].first_name;
+		std::cout << "|";
+		std::cout << std::right << std::setw(10) << phonebook.contacts[i].last_name;
+		std::cout << "|";
+		std::cout << std::right << std::setw(10) << phonebook.contacts[i].nickname;
+		std::cout << std::endl;
+	}
 }
 
 int main(void)
@@ -32,7 +47,8 @@ int main(void)
 	std::string input;
 	while ((input = read_input()) != "EXIT")
 	{
-		if (input == "ADD"){
+		if (input == "ADD")
+		{
 			Contact contact;
 
 			std::cout << "Adding new contact..." << std::endl;
@@ -59,32 +75,29 @@ int main(void)
 
 			phonebook.add_contact(contact);
 		}
-		if (input == "SEARCH"){
+		if (input == "SEARCH")
+		{
 			std::cout << "Searching contacts..." << std::endl;
-
-			for (int i = 0; i < phonebook.contact_count % MAX_CONTACTS; i++)
-			{
-				std::cout << std::right << std::setw(10) << i;
-				std::cout << "|";
-				std::cout << std::right << std::setw(10) << phonebook.contacts[i].first_name;
-				std::cout << "|";
-				std::cout << std::right << std::setw(10) << phonebook.contacts[i].last_name;
-				std::cout << "|";
-				std::cout << std::right << std::setw(10) << phonebook.contacts[i].nickname;
-				std::cout << std::endl;
-			}
+			display_contacts(phonebook);
 
 			std::cout << "See info for contact number: ";
 			input = read_input();
-			if (std::stoi(input) < 0 || std::stoi(input) > phonebook.contact_count % MAX_CONTACTS)
+
+			if (isdigit(input[0]) && input[1] == '\0')
 			{
-				// BUG: doesn't print?
-				std::cout << "Inexistant contact, please enter a valid number: ";
+				int index = std::stoi(input);
+				if (index < 0 || index >= (phonebook.contact_count % MAX_CONTACTS))
+				{
+					std::cout << "Inexistant contact, please enter a valid number: ";
+				}
+				else
+				{
+					std::cout << phonebook.contacts[stoi(input)].number << std::endl;
+				}
 			}
-			else
-			{
-				std::cout << phonebook.contacts[stoi(input)].number << std::endl;
-			}
+
+
+
 		}
 		// display_commands();
 	}
