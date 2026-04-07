@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/07 15:44:08 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/07 15:55:21 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,16 @@ void display_contacts(PhoneBook phonebook)
 		std::cout << std::right << std::setw(10) << n_name;
 		std::cout << std::endl;
 	}
+}
+
+void display_contact_info(Contact contact)
+{
+	std::cout << std::endl;
+	std::cout << "First name:   " << contact.first_name << std::endl;
+	std::cout << "Last name:    " << contact.last_name << std::endl;
+	std::cout << "Nickname:     " << contact.nickname << std::endl;
+	std::cout << "Phone number: " << contact.number << std::endl;
+	std::cout << "Secret:       " << contact.get_secret() << std::endl;
 }
 
 int main(void)
@@ -120,8 +130,7 @@ int main(void)
 				}
 				else
 				{
-					std::cout << phonebook.contacts[stoi(input)].first_name << std::endl;
-					std::cout << phonebook.contacts[stoi(input)].number << std::endl;
+					display_contact_info(phonebook.contacts[index]);
 				}
 			}
 			else
