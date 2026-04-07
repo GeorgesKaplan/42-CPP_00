@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/07 16:03:49 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/07 16:28:14 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,14 @@ int main(void)
 
 			if (isdigit(input[0]) && input[1] == '\0')
 			{
+				int max_index = phonebook.contact_count % MAX_CONTACTS;
 				int index = std::stoi(input);
-				if (index >= phonebook.contact_count % MAX_CONTACTS)
+				if (index >= max_index)
 				{
-					std::cout << "Inexistant contact, please enter a number between 0 and " << phonebook.contact_count % MAX_CONTACTS - 1 << ": ";
+					if (max_index - 1 == 0)
+						std::cout << "Inexistant contact, please enter a valid number: ";
+					else
+						std::cout << "Inexistant contact, please enter a number between 0 and " << max_index - 1 << ": ";
 				}
 				else
 				{
