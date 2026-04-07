@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/07 15:02:25 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/07 15:27:26 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ int main(void)
 		if (input == "SEARCH")
 		{
 			std::cout << "Searching contacts..." << std::endl;
+			if (phonebook.contact_count < 1)
+			{
+				std::cout << "No contacts found." << std::endl;
+				continue ;
+			}
 			display_contacts(phonebook);
 
 			std::cout << "See info for contact number: ";
@@ -86,20 +91,20 @@ int main(void)
 			if (isdigit(input[0]) && input[1] == '\0')
 			{
 				int index = std::stoi(input);
-				if (index < 0 || index >= (phonebook.contact_count % MAX_CONTACTS))
+				if (index >= phonebook.contact_count % MAX_CONTACTS)
 				{
-					std::cout << "Inexistant contact, please enter a valid number: ";
+					std::cout << "Inexistant contact, please enter a number between 0 and " << phonebook.contact_count % MAX_CONTACTS - 1 << ": ";
 				}
 				else
 				{
 					std::cout << phonebook.contacts[stoi(input)].number << std::endl;
 				}
 			}
-
-
-
+			else
+			{
+				std::cout << "Invalid index." << std::endl;
+			}
 		}
-		// display_commands();
 	}
 	std::cout << "Closing phonebook." << std::endl;
 	return (0);
