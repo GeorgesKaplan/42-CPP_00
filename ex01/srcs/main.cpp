@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/07 15:27:26 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/07 15:44:08 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,36 @@ void display_contacts(PhoneBook phonebook)
 {
 	for (int i = 0; i < (phonebook.contact_count % MAX_CONTACTS); i++)
 	{
+		Contact contact = phonebook.contacts[i];
+
 		std::cout << std::right << std::setw(10) << i;
 		std::cout << "|";
-		std::cout << std::right << std::setw(10) << phonebook.contacts[i].first_name;
+
+		std::string f_name = contact.first_name;
+		if (f_name.size() > 10)
+		{
+			f_name.resize(10);
+			f_name[9] = '.';
+		}
+		std::cout << std::right << std::setw(10) << f_name;
 		std::cout << "|";
-		std::cout << std::right << std::setw(10) << phonebook.contacts[i].last_name;
+
+		std::string l_name = contact.last_name;
+		if (l_name.size() > 10)
+		{
+			l_name.resize(10);
+			l_name[9] = '.';
+		}
+		std::cout << std::right << std::setw(10) << l_name;
 		std::cout << "|";
-		std::cout << std::right << std::setw(10) << phonebook.contacts[i].nickname;
+
+		std::string n_name = contact.nickname;
+		if (n_name.size() > 10)
+		{
+			n_name.resize(10);
+			n_name[9] = '.';
+		}
+		std::cout << std::right << std::setw(10) << n_name;
 		std::cout << std::endl;
 	}
 }
@@ -97,6 +120,7 @@ int main(void)
 				}
 				else
 				{
+					std::cout << phonebook.contacts[stoi(input)].first_name << std::endl;
 					std::cout << phonebook.contacts[stoi(input)].number << std::endl;
 				}
 			}
