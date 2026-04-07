@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/07 15:55:21 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/07 16:03:49 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ std::string read_input(void)
 	return (input);
 }
 
-void display_commands()
+void display_commands(void)
 {
 	std::cout << "Available commands:\nADD\t-> Add a contact\nSEARCH\t-> Search for a specific contact\nEXIT\t-> Close phonebook\n" << std::endl;
 }
@@ -72,6 +72,36 @@ void display_contact_info(Contact contact)
 	std::cout << "Secret:       " << contact.get_secret() << std::endl;
 }
 
+Contact set_contact_info(void)
+{
+	Contact contact;
+	std::string input;
+
+	std::cout << "Adding new contact..." << std::endl;
+
+	std::cout << "Enter first name:" << std::endl;
+	input = read_input();
+	contact.first_name = input;
+
+	std::cout << "Enter last name:" << std::endl;
+	input = read_input();
+	contact.last_name = input;
+
+	std::cout << "Enter nickname:" << std::endl;
+	input = read_input();
+	contact.nickname = input;
+
+	std::cout << "Enter phone number:" << std::endl;
+	input = read_input();
+	contact.number = input;
+
+	std::cout << "Enter secret:" << std::endl;
+	input = read_input();
+	contact.set_secret(input);
+
+	return (contact);
+}
+
 int main(void)
 {
 	PhoneBook phonebook;
@@ -82,30 +112,7 @@ int main(void)
 	{
 		if (input == "ADD")
 		{
-			Contact contact;
-
-			std::cout << "Adding new contact..." << std::endl;
-
-			std::cout << "Enter first name:" << std::endl;
-			input = read_input();
-			contact.first_name = input;
-
-			std::cout << "Enter last name:" << std::endl;
-			input = read_input();
-			contact.last_name = input;
-
-			std::cout << "Enter nickname:" << std::endl;
-			input = read_input();
-			contact.nickname = input;
-
-			std::cout << "Enter phone number:" << std::endl;
-			input = read_input();
-			contact.number = input;
-
-			std::cout << "Enter secret:" << std::endl;
-			input = read_input();
-			contact.set_secret(input);
-
+			Contact contact = set_contact_info();
 			phonebook.add_contact(contact);
 		}
 		if (input == "SEARCH")
