@@ -6,10 +6,11 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 12:34:05 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/07 15:50:35 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/10 12:15:48 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef CONTACT_H
 # define CONTACT_H
 
