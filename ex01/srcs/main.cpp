@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/10 10:58:46 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/10 12:00:06 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void display_commands(void)
 
 void display_contacts(PhoneBook phonebook)
 {
-	for (int i = 0; i < (phonebook.contact_count % MAX_CONTACTS); i++)
+	for (int i = 0; i < phonebook.contact_count; i++)
 	{
 		Contact contact = phonebook.contacts[i];
 
@@ -69,7 +69,7 @@ void display_contact_info(Contact contact)
 	std::cout << "Last name:    " << contact.last_name << std::endl;
 	std::cout << "Nickname:     " << contact.nickname << std::endl;
 	std::cout << "Phone number: " << contact.number << std::endl;
-	std::cout << "Secret:       " << contact.get_secret() << std::endl << std::endl;
+	std::cout << "Secret:       " << contact.get_secret() << std::endl;
 }
 
 Contact set_contact_info(void)
@@ -102,26 +102,9 @@ Contact set_contact_info(void)
 	return (contact);
 }
 
-// int main(void)
-int main(int ac, char *av[])
+int main(void)
 {
 	PhoneBook phonebook;
-
-	// TEST
-	if (ac == 2)
-	{
-		for (int i = 0; i < atoi(av[1]); i++)
-		{
-			Contact contact;
-			contact.first_name = "aaaaaaa";
-			contact.last_name = "AAAAAAA";
-			contact.nickname = "@@@@@@@";
-			contact.number = "1111111111";
-			contact.set_secret("ahuglahrga");
-			phonebook.add_contact(contact);
-		}
-	}
-	// END TEST
 
 	display_commands();
 	std::string input;
@@ -148,7 +131,7 @@ int main(int ac, char *av[])
 			{
 				if (isdigit(input[0]) && input[1] == '\0')
 				{
-					int max_index = phonebook.contact_count % MAX_CONTACTS;
+					int max_index = phonebook.contact_count;
 					int index = std::stoi(input);
 					if (index >= max_index)
 					{
@@ -169,6 +152,7 @@ int main(int ac, char *av[])
 				}
 			}
 		}
+		std::cout << std::endl;
 	}
 	std::cout << "Closing phonebook." << std::endl;
 	return (0);
