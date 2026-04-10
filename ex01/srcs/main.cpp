@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/07 16:28:14 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/10 10:40:08 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,26 @@ Contact set_contact_info(void)
 	return (contact);
 }
 
-int main(void)
+// int main(void)
+int main(int ac, char *av[])
 {
 	PhoneBook phonebook;
+
+	// TEST
+	if (ac == 2)
+	{
+		for (int i = 0; i < atoi(av[1]); i++)
+		{
+			Contact contact;
+			contact.first_name = "aaaaaaa";
+			contact.last_name = "AAAAAAA";
+			contact.nickname = "@@@@@@@";
+			contact.number = "1111111111";
+			contact.set_secret("ahuglahrga");
+			phonebook.add_contact(contact);
+		}
+	}
+	// END TEST
 
 	display_commands();
 	std::string input;
@@ -120,7 +137,7 @@ int main(void)
 			std::cout << "Searching contacts..." << std::endl;
 			if (phonebook.contact_count < 1)
 			{
-				std::cout << "No contacts found." << std::endl;
+				std::cout << "No contacts found.\n" << std::endl;
 				continue ;
 			}
 			display_contacts(phonebook);
