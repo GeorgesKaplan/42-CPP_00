@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/10 10:40:08 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/10 10:58:46 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void display_contact_info(Contact contact)
 	std::cout << "Last name:    " << contact.last_name << std::endl;
 	std::cout << "Nickname:     " << contact.nickname << std::endl;
 	std::cout << "Phone number: " << contact.number << std::endl;
-	std::cout << "Secret:       " << contact.get_secret() << std::endl;
+	std::cout << "Secret:       " << contact.get_secret() << std::endl << std::endl;
 }
 
 Contact set_contact_info(void)
@@ -138,32 +138,35 @@ int main(int ac, char *av[])
 			if (phonebook.contact_count < 1)
 			{
 				std::cout << "No contacts found.\n" << std::endl;
-				continue ;
+				continue;
 			}
 			display_contacts(phonebook);
 
 			std::cout << "See info for contact number: ";
-			input = read_input();
 
-			if (isdigit(input[0]) && input[1] == '\0')
+			while ((input = read_input()) != "")
 			{
-				int max_index = phonebook.contact_count % MAX_CONTACTS;
-				int index = std::stoi(input);
-				if (index >= max_index)
+				if (isdigit(input[0]) && input[1] == '\0')
 				{
-					if (max_index - 1 == 0)
-						std::cout << "Inexistant contact, please enter a valid number: ";
+					int max_index = phonebook.contact_count % MAX_CONTACTS;
+					int index = std::stoi(input);
+					if (index >= max_index)
+					{
+						if (max_index - 1 == 0)
+							std::cout << "Inexistant contact, please enter a valid number: ";
+						else
+							std::cout << "Inexistant contact, please enter a number between 0 and " << max_index - 1 << ": ";
+					}
 					else
-						std::cout << "Inexistant contact, please enter a number between 0 and " << max_index - 1 << ": ";
+					{
+						display_contact_info(phonebook.contacts[index]);
+						break;
+					}
 				}
 				else
 				{
-					display_contact_info(phonebook.contacts[index]);
+					std::cout << "Invalid index." << std::endl;
 				}
-			}
-			else
-			{
-				std::cout << "Invalid index." << std::endl;
 			}
 		}
 	}
