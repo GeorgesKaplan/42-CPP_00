@@ -4,7 +4,9 @@ FLAGS		= -Wall -Wextra -Werror -g
 SRCS_DIR	= srcs/
 OBJS_DIR	= objs/
 INCLUDES	= -Iincludes
-SRCS		= Account.cpp
+SRCS		=	test.cpp \
+				\
+				classes/Account.cpp
 SRCS		:= $(addprefix $(SRCS_DIR), $(SRCS))
 OBJS		:= $(SRCS:$(SRCS_DIR)%.cpp=$(OBJS_DIR)%.o)
 
