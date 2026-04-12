@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 15:11:31 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/12 11:43:37 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/12 12:06:18 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,14 @@ Account::~Account( void )
 
 void	Account::makeDeposit( int deposit )
 {
+	Account::_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "p_amount:" << this->_amount << ";";
+	std::cout << "deposit:" << deposit << ";";
 	this->_amount += deposit;
+	std::cout << "amount:" << this->_amount << ";";
 	this->_nbDeposits += 1;
+	std::cout << "nb_deposits:" << this->_nbDeposits << std::endl;
 	Account::_totalAmount += deposit;
 	Account::_totalNbDeposits += 1;
 }
@@ -83,13 +89,13 @@ bool	Account::makeWithdrawal( int withdrawal )
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
-	if (withdrawal > this->checkAmount())
+	if (withdrawal < this->checkAmount())
 	{
 		std::cout << "withdrawal:" << withdrawal;
 		this->_amount -= withdrawal;
 		std::cout << "p_amount:" << this->_amount << ";";
 		this->_nbWithdrawals += 1;
-		std::cout << "nb_witdrawals:" << this->_nbWithdrawals << std::endl;
+		std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
 		return (true);
 	}
 	else
