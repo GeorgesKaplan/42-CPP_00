@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/12 12:49:29 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/12 13:14:04 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ int main(void)
 				}
 				else
 				{
-					std::cout << "Invalid index." << std::endl;
+					std::cout << "Invalid index, please enter a single number digit: ";
 				}
 			}
 		}

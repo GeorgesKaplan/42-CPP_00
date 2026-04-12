@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:34:40 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/10 12:15:52 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/12 13:17:24 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class PhoneBook
 {
 	public:
 		int		contact_count = 0;
-		Contact contacts[MAX_CONTACTS];
+		Contact	contacts[MAX_CONTACTS];
 
 	void	add_contact(Contact contact);
 	PhoneBook();
