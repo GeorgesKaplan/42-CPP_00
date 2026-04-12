@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/10 12:00:06 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/12 12:49:29 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void display_contacts(PhoneBook phonebook)
 		std::cout << std::right << std::setw(10) << i;
 		std::cout << "|";
 
-		std::string f_name = contact.first_name;
+		std::string f_name = contact.get_fname();
 		if (f_name.size() > 10)
 		{
 			f_name.resize(10);
@@ -42,7 +42,7 @@ void display_contacts(PhoneBook phonebook)
 		std::cout << std::right << std::setw(10) << f_name;
 		std::cout << "|";
 
-		std::string l_name = contact.last_name;
+		std::string l_name = contact.get_lname();
 		if (l_name.size() > 10)
 		{
 			l_name.resize(10);
@@ -51,7 +51,7 @@ void display_contacts(PhoneBook phonebook)
 		std::cout << std::right << std::setw(10) << l_name;
 		std::cout << "|";
 
-		std::string n_name = contact.nickname;
+		std::string n_name = contact.get_lname();
 		if (n_name.size() > 10)
 		{
 			n_name.resize(10);
@@ -65,10 +65,10 @@ void display_contacts(PhoneBook phonebook)
 void display_contact_info(Contact contact)
 {
 	std::cout << std::endl;
-	std::cout << "First name:   " << contact.first_name << std::endl;
-	std::cout << "Last name:    " << contact.last_name << std::endl;
-	std::cout << "Nickname:     " << contact.nickname << std::endl;
-	std::cout << "Phone number: " << contact.number << std::endl;
+	std::cout << "First name:   " << contact.get_fname() << std::endl;
+	std::cout << "Last name:    " << contact.get_lname() << std::endl;
+	std::cout << "Nickname:     " << contact.get_nname() << std::endl;
+	std::cout << "Phone number: " << contact.get_number() << std::endl;
 	std::cout << "Secret:       " << contact.get_secret() << std::endl;
 }
 
@@ -81,19 +81,19 @@ Contact set_contact_info(void)
 
 	std::cout << "Enter first name:" << std::endl;
 	input = read_input();
-	contact.first_name = input;
+	contact.set_fname(input);
 
 	std::cout << "Enter last name:" << std::endl;
 	input = read_input();
-	contact.last_name = input;
+	contact.set_lname(input);
 
 	std::cout << "Enter nickname:" << std::endl;
 	input = read_input();
-	contact.nickname = input;
+	contact.set_nname(input);
 
 	std::cout << "Enter phone number:" << std::endl;
 	input = read_input();
-	contact.number = input;
+	contact.set_number(input);
 
 	std::cout << "Enter secret:" << std::endl;
 	input = read_input();

@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 12:34:05 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/10 12:15:48 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/12 12:41:16 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,21 @@
 class Contact
 {
 	private:
-		std::string secret;
-
-	public:
-		// int			index;
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
 		std::string	number;
+		std::string secret;
 
+	public:
+		void		set_fname(std::string str);
+		std::string	get_fname();
+		void		set_lname(std::string str);
+		std::string	get_lname();
+		void		set_nname(std::string str);
+		std::string	get_nname();
+		void		set_number(std::string str);
+		std::string	get_number();
 		void		set_secret(std::string str);
 		std::string	get_secret();
 		Contact();
