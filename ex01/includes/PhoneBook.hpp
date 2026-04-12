@@ -6,13 +6,13 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 12:34:40 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/12 13:17:24 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/12 13:47:22 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 # include "Contact.hpp"
 

@@ -6,13 +6,13 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 12:34:05 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/12 12:41:16 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/12 13:47:17 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <string>
 
