@@ -6,12 +6,13 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 15:11:31 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/12 12:06:18 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/12 12:25:16 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <iomanip>
 #include <ctime>
 
 int Account::_nbAccounts = 0;
@@ -91,11 +92,13 @@ bool	Account::makeWithdrawal( int withdrawal )
 	std::cout << "p_amount:" << this->_amount << ";";
 	if (withdrawal < this->checkAmount())
 	{
-		std::cout << "withdrawal:" << withdrawal;
+		std::cout << "withdrawal:" << withdrawal << ";";
 		this->_amount -= withdrawal;
-		std::cout << "p_amount:" << this->_amount << ";";
+		std::cout << "amount:" << this->_amount << ";";
 		this->_nbWithdrawals += 1;
 		std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+		Account::_totalAmount -= withdrawal;
+		Account::_totalNbWithdrawals += 1;
 		return (true);
 	}
 	else
@@ -125,11 +128,11 @@ void	Account::_displayTimestamp( void )
 	std::tm* now = std::localtime(&t);
 
 	std::cout << "[" << (now->tm_year + 1900);
-	std::cout << (now->tm_mon + 1);
-	std::cout << now->tm_mday << "_";
-	std::cout << now->tm_hour;
-	std::cout << now->tm_min;
-	std::cout << now->tm_sec << "] ";
+	std::cout << std::setfill('0') << std::setw(2) << (now->tm_mon + 1);
+	std::cout << std::setfill('0') << std::setw(2) << now->tm_mday << "_";
+	std::cout << std::setfill('0') << std::setw(2) << now->tm_hour;
+	std::cout << std::setfill('0') << std::setw(2) << now->tm_min;
+	std::cout << std::setfill('0') << std::setw(2) << now->tm_sec << "] ";
 }
 
 Account::Account( void )
