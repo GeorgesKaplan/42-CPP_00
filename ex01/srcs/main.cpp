@@ -51,7 +51,7 @@ void display_contacts(PhoneBook phonebook)
 		std::cout << std::right << std::setw(10) << l_name;
 		std::cout << "|";
 
-		std::string n_name = contact.get_lname();
+		std::string n_name = contact.get_nname();
 		if (n_name.size() > 10)
 		{
 			n_name.resize(10);
