@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 16:37:52 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/02 16:58:15 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/14 12:32:25 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ int main(int ac, char *av[])
 		std::cout << voice;
 	}
 	std::cout << std::endl;
+	return (0);
 }
