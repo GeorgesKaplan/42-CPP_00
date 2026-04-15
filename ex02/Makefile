@@ -1,6 +1,6 @@
 NAME		= Account
 COMP		= c++
-FLAGS		= -Wall -Wextra -Werror -g
+FLAGS		= -Wall -Wextra -Werror -g -std=c++98
 SRCS_DIR	= srcs/
 OBJS_DIR	= objs/
 INCLUDES	= -Iincludes
