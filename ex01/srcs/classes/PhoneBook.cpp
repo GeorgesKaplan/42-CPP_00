@@ -6,14 +6,16 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 12:41:47 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/10 11:50:13 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/15 10:06:24 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
-{}
+{
+	this->contact_count = 0;
+}
 
 PhoneBook::~PhoneBook()
 {}

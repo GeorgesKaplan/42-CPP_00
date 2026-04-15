@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 13:04:19 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/12 13:47:12 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/15 10:27:30 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <fstream>
 # include <iomanip>
+# include <cstdlib>
 
 #include "PhoneBook.hpp"
 

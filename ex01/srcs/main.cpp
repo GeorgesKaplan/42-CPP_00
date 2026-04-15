@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/12 13:14:04 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/15 10:35:16 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,23 +80,53 @@ Contact set_contact_info(void)
 	std::cout << "Adding new contact..." << std::endl;
 
 	std::cout << "Enter first name:" << std::endl;
-	input = read_input();
+	while (1)
+	{
+		input = read_input();
+		if (input != "")
+			break ;
+		std::cout << "Field can't be empty, enter first name:" << std::endl;
+	}
 	contact.set_fname(input);
 
 	std::cout << "Enter last name:" << std::endl;
-	input = read_input();
+	while (1)
+	{
+		input = read_input();
+		if (input != "")
+			break ;
+		std::cout << "Field can't be empty, enter last name:" << std::endl;
+	}
 	contact.set_lname(input);
 
 	std::cout << "Enter nickname:" << std::endl;
-	input = read_input();
+	while (1)
+	{
+		input = read_input();
+		if (input != "")
+			break ;
+		std::cout << "Field can't be empty, enter nickname:" << std::endl;
+	}
 	contact.set_nname(input);
 
 	std::cout << "Enter phone number:" << std::endl;
-	input = read_input();
+	while (1)
+	{
+		input = read_input();
+		if (input != "")
+			break ;
+		std::cout << "Field can't be empty, enter phone number:" << std::endl;
+	}
 	contact.set_number(input);
 
 	std::cout << "Enter secret:" << std::endl;
-	input = read_input();
+	while (1)
+	{
+		input = read_input();
+		if (input != "")
+			break ;
+		std::cout << "Field can't be empty, enter secret:" << std::endl;
+	}
 	contact.set_secret(input);
 
 	return (contact);
@@ -132,7 +162,7 @@ int main(void)
 				if (isdigit(input[0]) && input[1] == '\0')
 				{
 					int max_index = phonebook.contact_count;
-					int index = std::stoi(input);
+					int index = atoi(input.c_str());
 					if (index >= max_index)
 					{
 						if (max_index - 1 == 0)
