@@ -6,7 +6,7 @@
 /*   By: dnantet <dnantet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 13:00:21 by dnantet           #+#    #+#             */
-/*   Updated: 2026/04/15 10:35:16 by dnantet          ###   ########.fr       */
+/*   Updated: 2026/04/15 11:17:39 by dnantet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void display_commands(void)
 
 void display_contacts(PhoneBook phonebook)
 {
-	for (int i = 0; i < phonebook.contact_count; i++)
+	for (int i = 0; i < std::min(phonebook.contact_count, MAX_CONTACTS); i++)
 	{
 		Contact contact = phonebook.contacts[i];
 
@@ -161,7 +161,7 @@ int main(void)
 			{
 				if (isdigit(input[0]) && input[1] == '\0')
 				{
-					int max_index = phonebook.contact_count;
+					int max_index = std::min(phonebook.contact_count, MAX_CONTACTS);
 					int index = atoi(input.c_str());
 					if (index >= max_index)
 					{
